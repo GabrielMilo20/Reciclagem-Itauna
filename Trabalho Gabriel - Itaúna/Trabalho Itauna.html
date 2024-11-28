@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Reciclagem em Itaúna-MG</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        #header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        #recycle-info {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #recycle-info h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .recycle-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .recycle-item img {
+            width: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .recycle-item p {
+            color: #666;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .recycle-item span {
+            font-weight: bold;
+        }
+        #map-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #map {
+            height: 400px;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        #info {
+            margin-top: 20px;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .location {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .location strong {
+            display: block;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .location p {
+            margin: 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Reciclagem em Itaúna-MG</h1>
+        <p>A reciclagem é importante para preservar o meio ambiente. Aqui você encontra informações sobre como reciclar corretamente diferentes materiais e orientações sobre como descartar itens de maneira sustentável.</p>
+    </div>
+
+    <!-- Informações sobre reciclagem -->
+    <div id="recycle-info">
+        <h2>Como Reciclar Corretamente:</h2>
+        <div class="recycle-item">
+            <img src="papelpapelao.jpg" alt="Papéis e Papelão">
+            <p><strong>Papéis e Papelão:</strong> Papéis limpos e secos podem ser reciclados. Retire grampos, clipes e adesivos. <span>Tempo de decomposição: 6 meses</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="plasticos.jpeg" alt="Plásticos">
+            <p><strong>Plásticos:</strong> Recicle garrafas plásticas, potes, sacolas e embalagens plásticas limpas e secas. <span>Tempo de decomposição: 450 a 500 anos</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="vidros.jpg" alt="Vidros">
+            <p><strong>Vidros:</strong> Recicle garrafas, frascos e potes de vidro. Lave e remova tampas e rótulos. <span>Tempo de decomposição: 4.000 anos</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="metal.jpg" alt="Metal">
+            <p><strong>Metal:</strong> Latas de alumínio e de aço, como as de refrigerante e de conservas, podem ser recicladas. <span>Tempo de decomposição: 500 anos</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="oleo.jpg" alt="Óleo de Cozinha">
+            <p><strong>Óleo de Cozinha:</strong> Nunca despeje óleo de cozinha na pia, a decomposição libera gás metano. Recicle-o em pontos de coleta específicos. <span>Tempo de decomposição: Indefinido</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="pilhaebateria.jpg" alt="Pilhas e Baterias">
+            <p><strong>Pilhas e Baterias:</strong> Esses itens contêm metais pesados e substâncias tóxicas, por isso devem ser descartados corretamente. <span>Tempo de decomposição: 450 anos</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="eletronicos.jpg" alt="Eletrônicos">
+            <p><strong>Eletrônicos:</strong> Não jogue aparelhos eletrônicos no lixo comum. Procure pontos de coleta para lixo eletrônico. <span>Tempo de decomposição: 500 anos</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="Lampadas.png" alt="Lâmpadas">
+            <p><strong>Lâmpadas:</strong> Lâmpadas fluorescentes e de LED devem ser descartadas em locais específicos de coleta para evitar contaminação. <span>Tempo de decomposição: 10.000 anos</span></p>
+        </div>
+        <div class="recycle-item">
+            <img src="moveis.jpg" alt="Móveis e Eletrodomésticos">
+            <p><strong>Móveis e Eletrodomésticos:</strong> Doe ou recicle móveis e eletrodomésticos usados em vez de jogá-los fora. <span>Tempo de decomposição: Indefinido</span></p>
+        </div>
+    </div>
+
+    <!-- Mapa -->
+    <div id="map-container">
+        <div id="map"></div>
+    </div>
+
+    <!-- Informações sobre os pontos de coleta -->
+    <div id="info">
+        <h2>Pontos de Coleta:</h2>
+        <div id="locations"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Dados dos pontos de coleta
+        var locations = [
+            { name: 'Bio+ Valorização de Recicláveis', address: 'R. Zezé Lima, 321 - Centro, Itaúna - MG, 35680-045', position: { lat: -20.071193513439265, lng: -44.575669830912446 } },
+            { name: 'Reciclagem São Lucas', address: 'R. Manoel Gonçalves, 868 - Vila Tavares, Itaúna - MG, 35680-055', position: { lat: -20.07043074984637, lng: -44.568412633834626 } },
+            { name: 'Coaço Reciclagem', address: 'R. Amadeu Viêira Pôrto, 600 - Santa Monica, Itaúna - MG, 35681-219', position: { lat:-20.062194681518747, lng: -44.57046793818282 } },
+            { name: 'Coopert - Cooperativa De Reciclagem E Trabalho', address: 'Parque Jardim Santanense, Itaúna - MG, 35681-100', position: { lat: -20.085087234083442, lng:-44.609403735867524 } },
+            { name: 'K9 Reciclagem', address: 'Av. Dr. Miguel Augusto Gonçalves, 3721 - Santanense, Itaúna - MG, 35680-147', position: { lat: -20.065830566634645, lng: -44.6018092462682 } },
+            { name: 'RecicloMinas Reciclagem Industrial LTDA', address: 'Tv. Itaúna - Distrito Industrial, Itaúna - MG, 35681-782', position: { lat: -20.054072018142783, lng: -44.61421266724911 } }
+        ];
+
+        // Função para inicializar o mapa
+        function initMap() {
+            // Coordenadas de Itaúna-MG
+            var itauna = { lat: -20.0765, lng: -44.5785 };
+
+            // Estilos personalizados para o mapa
+            var mapStyles = [
+                {
+                    featureType: 'poi.business',
+                    stylers: [{ visibility: 'off' }]
+                },
+                {
+                    featureType: 'transit',
+                    elementType: 'labels.icon',
+                    stylers: [{ visibility: 'off' }]
+                }
+            ];
+
+            // Inicialização do mapa
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 13,
+                center: itauna,
+                styles: mapStyles // Aplicar estilos personalizados
+            });
+
+            // Adiciona marcadores e informações
+            var infoWindow = new google.maps.InfoWindow();
+            locations.forEach(function(location) {
+                var marker = new google.maps.Marker({
+                    position: location.position,
+                    map: map,
+                    title: location.name,
+                    animation: google.maps.Animation.DROP // Animação ao adicionar marcador
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    map.setZoom(15); // Zoom ao clicar no marcador
+                    map.setCenter(marker.getPosition()); // Centraliza o mapa no marcador
+                    infoWindow.setContent('<strong>' + location.name + '</strong><br>' + location.address);
+                    infoWindow.open(map, marker);
+                });
+
+                // Adiciona informações na lista abaixo do mapa
+                var locationsDiv = document.getElementById('locations');
+                var locationDiv = document.createElement('div');
+                locationDiv.classList.add('location');
+                locationDiv.innerHTML = '<strong>' + location.name + '</strong><p>' + location.address + '</p>';
+                locationsDiv.appendChild(locationDiv);
+            });
+        }
+    </script>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoTcJVzv5R55Z5PdcGhQI1Rlkla_ZSnCU&callback=initMap" async defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
